@@ -33,6 +33,7 @@ test('Arsenal prerequisites derive F2 troop unlock levels',()=>{
 });
 test('campaign gates block early promotion and open only after all objectives plus wins',()=>{
  const v=game(2);v.wins[2]=FORTRESSES[2].wins;
+ v.structures.find(x=>x.name==='Torre Raposa').level=1;
  const pending=goalsFor(v).find(g=>!g.ok);assert.ok(pending);assert.equal(canAdvance(v),false);
  const [kind,name]=pending.id.split(':');
  if(kind==='b'){const target=FORTRESSES[2].structures.find(([n,l,c])=>`${n}:${l}:${c}`===pending.id.slice(2));const b=v.structures.find(x=>x.name===target[0]);if(b)b.level=target[1];else v.structures.push({name:target[0],level:target[1]})}
