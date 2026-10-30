@@ -12,9 +12,9 @@ Este é o novo projeto Android separado dos protótipos anteriores. A meta acord
 - Ainda não há contas privadas, sincronização ou backend. Não coloque segredos em commits.
 
 ## Conteúdo acordado e em definição
-O plano de longo prazo é uma campanha F1–F18, mas a entrega atual solicitada é F1–F4. F5–F18 não serão planejadas nesta etapa. Custos, tempos e atributos não confirmados não devem ser apresentados como finais. As regras de campanha ficam em `campaign-rules.cjs` e possuem testes automatizados via `npm test`.
+O plano de longo prazo é uma campanha F1–F18, mas a entrega atual solicitada é F1–F4. F5–F18 não serão planejadas nesta etapa. Custos, tempos e atributos não confirmados não devem ser apresentados como finais. As regras de campanha ficam em `campaign-rules.js` e possuem testes automatizados via `npm test`.
 
 ## Compilação Android (pipeline de desenvolvimento)
-O workflow GitHub Actions em `.github/workflows/android-apk.yml` instala dependências no runner, gera o projeto Android com Expo Prebuild, compila um **APK debug de teste** e faz upload como artifact por 14 dias. Não requer credenciais ou secrets. Este artifact, se produzido, corresponde somente ao código parcial presente no commit e **não é a entrega final do jogo completo**. Workflow: [Build Android APK](../../actions/workflows/android-apk.yml).
+O workflow GitHub Actions em `.github/workflows/android-apk.yml` executa `npm test`, instala dependências no runner, gera o projeto Android com Expo Prebuild, compila um **APK debug de teste** e faz upload como artifact por 14 dias. Não requer credenciais ou secrets. Este artifact, se produzido, corresponde somente ao código parcial presente no commit e **não é a entrega final do jogo completo**. Workflow: [Build Android APK](../../actions/workflows/android-apk.yml).
 
 Antes de chamar qualquer build de pronta, verificar o resultado da Action e validar APK. Para considerar F1–F4 pronta, ainda faltam executar e registrar testes ponta a ponta e QA real em Android. A compilação por si só não significa que o jogo está concluído.

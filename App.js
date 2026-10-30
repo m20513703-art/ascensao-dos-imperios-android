@@ -3,7 +3,7 @@ import {Alert, Animated, PanResponder, SafeAreaView, ScrollView, StatusBar, Styl
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // The game rules live in plain data so milestones and the UI can be audited together.
-const {SAVE_KEY,WORKER_COSTS,FORTRESSES,capacityOf,structureCount,levelCount,troopLevelOf,goalsFor,canAdvance,validateSave,swapStructuresAtDrop}=require('./campaign-rules.cjs');
+const {SAVE_KEY,WORKER_COSTS,FORTRESSES,capacityOf,structureCount,levelCount,troopLevelOf,goalsFor,canAdvance,validateSave,swapStructuresAtDrop}=require('./campaign-rules.js');
 function Btn({children,onPress,disabled=false,subtle=false}){return <TouchableOpacity disabled={disabled} onPress={onPress} style={[s.btn,subtle&&s.subtle,disabled&&{opacity:.42}]}><Text style={s.btnText}>{children}</Text></TouchableOpacity>}
 function Card({children}){return <View style={s.card}>{children}</View>}
 function Heading({children}){return <Text style={s.heading}>{children}</Text>}

@@ -1,7 +1,7 @@
 'use strict';
 const test=require('node:test');
 const assert=require('node:assert/strict');
-const {FORTRESSES,WORKER_COSTS,capacityOf,structureCount,levelCount,troopLevelOf,goalsFor,canAdvance,validateSave,swapStructuresAtDrop}=require('./campaign-rules.cjs');
+const {FORTRESSES,WORKER_COSTS,capacityOf,structureCount,levelCount,troopLevelOf,goalsFor,canAdvance,validateSave,swapStructuresAtDrop}=require('./campaign-rules.js');
 function game(f){
  const spec=FORTRESSES[f];
  return {fortress:f,gold:0,elixir:0,diamonds:0,workers:1,wins:{1:0,2:0,3:0,4:0},attacks:0,structures:spec.structures.flatMap(([name,level,count])=>Array.from({length:count},()=>({name,level}))),walls:spec.wallCount,wallLevel:spec.wallLevel,troops:Object.fromEntries(Object.keys(spec.troops).map(n=>[n,1])),troopLevels:{...spec.troops},spells:{},crafted:Object.fromEntries(spec.spells.map(n=>[n,true]))};
