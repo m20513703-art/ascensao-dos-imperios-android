@@ -1,25 +1,19 @@
-# Ascensão dos Impérios — app Android em desenvolvimento
+# Ascensão dos Impérios — jogo Android em desenvolvimento
 
-**Status: rascunho incompleto. Não é uma versão pronta para jogar e não há APK publicado.**
+**Status real: projeto incompleto. Não é o jogo completo, não está pronto para jogar e nenhum APK deve ser tratado como entrega final.**
 
-Este é um projeto Android novo, separado do site/protótipo anterior. O escopo definido é um jogo original de estratégia com tema de animais, planejado para as Fortalezas 1 a 4. Este repositório contém apenas uma implementação inicial e ainda não representa o jogo completo.
+Este é o novo projeto Android separado dos protótipos anteriores. A meta acordada é um jogo original de estratégia com progressão contínua pelas **18 Fortalezas**, com mecânicas do gênero de estratégia mobile como referência geral, sem copiar nomes, arte, personagens, mapas ou conteúdo de outros jogos. O conteúdo e as regras detalhadas de F1–F4 estão sendo definidos; F5–F18 ainda precisam ser especificados e projetados. A arquitetura precisa suportar a campanha inteira e testes de progressão em escala — não apenas uma demonstração curta.
 
-## Estado atual
-- Projeto React Native/Expo com uma primeira interface de jogo e telas para vila, tropas, missões e construção.
-- Há lógica experimental para progressão, batalha simplificada, edifícios, tropas e feitiços; ainda precisa de revisão, implementação fiel às regras acordadas e testes.
-- As batalhas, posicionamento por arrastar, pesquisa/feitiços, salvamento confiável e progressão entre fortalezas não foram validados como experiência jogável completa.
-- Salvamento/contas online com e-mail privado ainda não existem. Não há backend ou sincronização; não inserir credenciais em commits.
-- Não foi compilado nem testado num dispositivo Android. **Não há APK disponível neste repositório.**
+## Estado atual do código
+- React Native/Expo, com um protótipo inicial bem parcial de Fortaleza 1: vila básica, recrutar Coelhos gratuitamente, iniciar batalha simples e salvar alguns números localmente.
+- Não há campanha completa, economia validada, cadeia de requisitos, missões, defesa editável, tropas/edifícios/feitiços das fortalezas futuras, nem jogo completo até F18.
+- As batalhas, interface e persistência ainda precisam de QA real em simulador/dispositivo; não afirmar que os fluxos foram testados apenas porque o código existe.
+- Ainda não há contas privadas, sincronização ou backend. Não coloque segredos em commits.
 
-## Requisitos de produto já definidos
-O jogador começa na Fortaleza 1 e progride somente após cumprir requisitos e vencer batalhas. O plano cobre F1–F4, incluindo tropas de animais, construções, muralhas, feitiços, missões progressivas e até sete trabalhadores. Custos das construções/tempos e balanceamento ainda precisam ser confirmados; valores temporários devem ser identificados como provisórios.
+## Conteúdo acordado e em definição
+O plano de produto é uma única campanha contínua F1–F18. Há especificações iniciais para F1–F4, mas ainda não está tudo implementado nem integralmente testado. Os projetos das Fortalezas 5–18 estão pendentes de definição. Custos, tempos e atributos que não foram confirmados não devem ser apresentados como finais. A progressão precisa ser data-driven e permitir validar requisitos, desbloqueios, batalha, economia, tropas e salvamento em toda a campanha.
 
-## Desenvolvimento
-Dependências declaradas em `package.json`. Em um ambiente compatível com Expo/Android, instale as dependências e use o Expo/EAS para executar e compilar. Os comandos abaixo são apenas instruções de desenvolvimento; **não indicam que a compilação foi concluída**:
+## Compilação Android (pipeline de desenvolvimento)
+O workflow GitHub Actions em `.github/workflows/android-apk.yml` instala dependências no runner, gera o projeto Android com Expo Prebuild, compila um **APK debug de teste** e faz upload como artifact por 14 dias. Não requer credenciais ou secrets. Este artifact, se produzido, corresponde somente ao código parcial presente no commit e **não é a entrega final do jogo completo**. Workflow: [Build Android APK](../../actions/workflows/android-apk.yml).
 
-```sh
-npm install
-npx expo start
-```
-
-Antes de qualquer APK ou publicação, completar os sistemas definidos, executar testes, instalar e testar em dispositivo Android, e atualizar este README com os resultados reais.
+Antes de chamar qualquer build de pronta, verificar o resultado da Action e validar APK. Antes da entrega final, completar o desenho e implementação F1–F18, testar progressão e mecânicas ponta a ponta e testar o aplicativo em Android. A compilação por si só não significa que o jogo está concluído.
